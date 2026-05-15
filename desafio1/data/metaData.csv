@@ -1,0 +1,16 @@
+Feature,Description
+row_id,Identificador único da linha na competição.
+order_id,Identificador único do pedido.
+customer_id,Identificador do cliente (chave de ligação).
+order_status,"Status do pedido (ex: entregue, cancelado)."
+order_purchase_timestamp,Data e hora em que a compra foi feita.
+order_delivered_customer_date,Data real em que o cliente recebeu o produto.
+order_estimated_delivery_date,Data estimada de entrega informada na compra.
+price,Preço do produto (sem frete).
+freight_value,Valor do frete (ALVO DA PREDIÇÃO - TARGET).
+product_weight_g,Peso do produto em gramas.
+product_length_cm,Comprimento do produto em centímetros.
+product_height_cm,Altura do produto em centímetros.
+product_width_cm,Largura do produto em centímetros.
+customer_city,Cidade do comprador.
+customer_state,Estado do comprador (UF).
