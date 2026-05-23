@@ -2,3 +2,12 @@ venv/
 docs/
 .ipynb_checkpoints/
 __pycache__/
+
+# MLflow logs e bancos de dados locais
+mlruns/
+mlflow.db
+
+# Diretórios de dados e arquivos locais de dataset
+desafio2/data/
+*.npy
+*.csv
