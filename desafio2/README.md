@@ -46,6 +46,13 @@ Construção de uma rede neural rasa escrita puramente em Python e NumPy, com o 
 
 Para assegurar a modularidade e a portabilidade do desenvolvimento, essa rotina manual foi deslocada para o notebook independente [opcional.ipynb](./notebooks/opcional.ipynb), que valida as equações de gradiente de forma totalmente isolada.
 
+### Resultados da Atividade Opcional 
+
+A arquitetura analítica foi aplicada sobre o conjunto de dados reais de imagens de dígitos escritos à mão extraído do Scikit-Learn, operando com uma camada oculta de 32 neurônios e semente aleatória fixada em 15 para assegurar a reprodutibilidade. Durante o treinamento de 150 épocas contínuas sob taxa de aprendizado de 0.5, o modelo exibiu comportamento consistente de convergência:
+
+* **Evolução da Perda**: A perda no conjunto de treino foi reduzida de 2,3021 para 1,8900, enquanto a perda no conjunto de teste declinou de 2,3020 para 1,8863.
+* **Acurácia Final**: O modelo alcançou 55,83% de acurácia de teste na última época, evidenciando o aprendizado progressivo e a estabilidade das derivadas do gradiente descendente programadas manualmente em NumPy.
+
 ---
 
 ## Otimização de Hiperparâmetros e Resultados Finais
@@ -96,3 +103,4 @@ O dashboard estará disponível no endereço `http://localhost:5000`.
 | 1.0 | Estruturação da documentação técnica do Desafio da Semana 2 com o mapeamento das rotinas de classificação estelar multiclasse e detalhamento das atividades obrigatórias e opcionais. | [artur mendonça arruda](https://github.com/ArtyMend07) | 22/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 22/05/2026 |
 | 1.1 | Atualização da arquitetura de fluxo de dados, detalhando a separação de diretórios entre dados brutos e processados com automação de caminhos integrada. | [artur mendonça arruda](https://github.com/ArtyMend07) | 22/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 22/05/2026 |
 | 1.2 | Inclusão das análises comparativas de otimização de hiperparâmetros contra superajuste e dos resultados de performance com gráficos do MLflow. | [artur mendonça arruda](https://github.com/ArtyMend07) | 23/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 23/05/2026 |
+| 1.3 | Atualização dos resultados da atividade opcional do notebook de rede neural do zero rodando em imagens de dígitos. | [artur mendonça arruda](https://github.com/ArtyMend07) | 23/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 23/05/2026 |
