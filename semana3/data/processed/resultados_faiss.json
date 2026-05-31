@@ -1,0 +1,27 @@
+{
+  "O que é astronomia?": {
+    "similaridade_cosseno_top1": 0.8291820883750916,
+    "chunks_recuperados": 5,
+    "contexto_preview": "Astronomia é uma ciência natural que estuda corpos celestes (como estrelas, planetas, cometas, nebulosas, aglomerados de estrelas, galáxias) e fenômenos que se originam fora da atmosfera da Terra (como a radiação cósmica de fundo em micro-ondas). Preocupada com a evolução, a física e a química de objetos celestes, bem como a formação e o desenvolvimento do universo. A astronomia é uma das mais antigas ciências. Culturas pré-históricas deixaram registrados vários artefatos astronômicos, como Ston"
+  },
+  "Quem foi Albert Einstein?": {
+    "similaridade_cosseno_top1": 0.5910924673080444,
+    "chunks_recuperados": 5,
+    "contexto_preview": "Einstein nasceu uma enxurrada de debates, teorias e testes e, então, a todo o campo da física quântica, levando à sua maior aceitação na quinta Conferência de Solvay em 1927. Princípios Primeiro princípio: Princípio da superposição Na mecânica quântica, o estado de um sistema físico é definido pelo conjunto de todas as informações que podem ser extraídas desse sistema ao se efetuar alguma medida. Na mecânica quântica, todos os estados são representados por vetores em um espaço vetorial complexo:"
+  },
+  "Como funciona a fotossíntese?": {
+    "similaridade_cosseno_top1": 0.5468748211860657,
+    "chunks_recuperados": 5,
+    "contexto_preview": "As células de algas ou cianobactérias são fotossintéticas e, como nas plantas, reduzem o dióxido de carbono atmosférico em açúcares orgânicos de carbono para alimentar ambos os simbiontes. Ficobiontes (algas) produzem álcoois de açúcar (ribitol, sorbitol e eritritol), que são absorvidos pelo micobionte (fungo). Cianobiontes produzem glicose. As células fúngicas liquenizadas podem fazer com que o fotobionte \"vaze\" os produtos da fotossíntese, onde podem ser absorvidos pelo fungo. Parece que muito"
+  },
+  "O que é inteligência artificial?": {
+    "similaridade_cosseno_top1": 0.9271771907806396,
+    "chunks_recuperados": 5,
+    "contexto_preview": "Na tecnologia, a Inteligência Artificial (de sigla: IA; do inglês: Artificial Intelligence, de sigla: AI) é a inteligência demonstrada por máquinas ao executar tarefas complexas associadas a seres inteligentes, além de também ser um campo de estudo acadêmico, no qual o principal objetivo é de executar funções de modo autônomo. É um conceito amplo e que recebe tantas definições quanto significados diferentes à palavra inteligência. É possível considerar algumas características básicas desses sist"
+  },
+  "Qual é a história do Brasil?": {
+    "similaridade_cosseno_top1": 0.7307767271995544,
+    "chunks_recuperados": 5,
+    "contexto_preview": "as quais o movimento de Canudos seria uma tentativa de restauração da Monarquia, comandada à distância pelos monarquistas. Percebe que se trata de uma sociedade completamente diferente da litorânea. De certa forma, ele descobre o verdadeiro interior do Brasil, que mostrou ser muito diferente da representação usual que dele se tinha. Euclydes se tornou internacionalmente famoso com a publicação desta obra-prima que lhe valeu vagas para a Academia Brasileira de Letras (ABL) e para o Instituto Hist"
+  }
+}
