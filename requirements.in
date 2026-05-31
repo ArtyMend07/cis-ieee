@@ -8,3 +8,8 @@ jupyter
 mlflow
 pip-tools
 torch
+datasets
+sentence-transformers
+faiss-cpu
+rank-bm25
+pyarrow>=14
