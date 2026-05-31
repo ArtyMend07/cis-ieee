@@ -13,3 +13,4 @@ sentence-transformers
 faiss-cpu
 rank-bm25
 pyarrow>=14
+transformers
