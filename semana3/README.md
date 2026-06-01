@@ -1,4 +1,4 @@
-# Semana 3 — Retrieval-Augmented Generation (RAG)
+# Semana 3: Retrieval-Augmented Generation (RAG)
 
 Implementação de pipelines de Recuperação Aumentada por Geração (RAG) sobre o corpus da Wikipédia em português, via dataset `TucanoBR/wikipedia-PT` do Hugging Face.
 
@@ -13,7 +13,7 @@ semana3/
 │   └── processed/     <- Chunks, índices e resultados de avaliação
 └── notebooks/
     ├── obrigatorio.ipynb   <- RAG lexical com BM25
-    └── opcional.ipynb      <- RAG denso com FAISS e sentence-transformers
+    └── opcional.ipynb      <- RAG com FAISS e sentence-transformers
 ```
 
 ---
@@ -24,7 +24,7 @@ O corpus utilizado é o `TucanoBR/wikipedia-PT`, disponível no Hugging Face. O 
 
 ---
 
-## Atividade Obrigatória — RAG Lexical (BM25)
+## Atividade Obrigatória: RAG Lexical (BM25)
 
 Pipeline de recuperação baseado em relevância lexical (TF-IDF ponderado) via algoritmo BM25Okapi:
 
@@ -37,7 +37,7 @@ Pipeline de recuperação baseado em relevância lexical (TF-IDF ponderado) via 
 
 ---
 
-## Atividade Opcional — RAG Denso com FAISS e Embeddings
+## Atividade Opcional: RAG Denso com FAISS e Embeddings
 
 Pipeline de recuperação semântica via similaridade de cosseno em espaço vetorial:
 
@@ -49,9 +49,9 @@ Pipeline de recuperação semântica via similaridade de cosseno em espaço veto
 6. Geração de respostas diretas utilizando o LLM `google/flan-t5-small` baseado no contexto
 7. Avaliação comparativa e exportação de métricas
 
-O modelo `paraphrase-multilingual-MiniLM-L12-v2` foi escolhido por ser leve, suportar nativamente o português e apresentar boa relação entre qualidade semântica e custo computacional — adequado para o volume de chunks processados sem GPU.
+O modelo `paraphrase-multilingual-MiniLM-L12-v2` foi escolhido por ser leve, suportar nativamente o português e apresentar boa relação entre qualidade semântica e custo computacional, adequado para o volume de chunks processados sem GPU.
 
-Para a geração (a etapa "G" do RAG), incorporamos o modelo open-source `google/flan-t5-small` (escolhido no lugar da versão `base` para viabilizar a execução em máquinas com até 8GB de RAM). Alimentando o LLM exclusivamente com o contexto recuperado, as respostas geradas demonstraram ser diretas e restritas aos fatos indexados. A injeção de contexto evitou alucinações comuns em respostas de livro fechado (closed-book), fechando o ciclo completo do RAG proposto na atividade.
+Para a geração, incorporamos o modelo open-source `google/flan-t5-small` (escolhido no lugar da versão `base`, pois estava dando falta de memória bruta no kernel do jupyter). Alimentando o LLM com o contexto recuperado, as respostas geradas demonstraram ser diretas e restritas aos fatos indexados, onde a injeção de contexto evitou alucinações comuns em respostas sem contexto (livro fechada ou book-closed).
 
 ---
 
@@ -61,9 +61,9 @@ Para a geração (a etapa "G" do RAG), incorporamos o modelo open-source `google
 
 | Consulta | Pontuação BM25 (top-1) | Contexto recuperado relevante? |
 |---|---|---|
-| O que é astronomia? | 14.83 | Não — retornou artigo de fonética |
-| Quem foi Albert Einstein? | 10.94 | Parcial — artigo sobre Nobélio com menção a Albert |
-| Como funciona a fotossíntese? | 16.46 | Não — retornou artigo sobre obras urbanas |
+| O que é astronomia? | 14.83 | Não, retornou artigo de fonética |
+| Quem foi Albert Einstein? | 10.94 | Parcial, artigo sobre Nobélio com menção a Albert |
+| Como funciona a fotossíntese? | 16.46 | Não, retornou artigo sobre obras urbanas |
 | O que é inteligência artificial? | 23.80 | Sim |
 | Qual é a história do Brasil? | 22.72 | Sim |
 
@@ -71,17 +71,17 @@ Para a geração (a etapa "G" do RAG), incorporamos o modelo open-source `google
 
 | Consulta | Similaridade de Cosseno (top-1) | Contexto recuperado relevante? |
 |---|---|---|
-| O que é astronomia? | 0.829 | Sim — artigo direto de Astronomia |
-| Quem foi Albert Einstein? | 0.591 | Sim — física quântica com menção a Einstein |
-| Como funciona a fotossíntese? | 0.547 | Sim — fotossíntese em liquens |
-| O que é inteligência artificial? | 0.927 | Sim — artigo direto de IA |
-| Qual é a história do Brasil? | 0.731 | Sim — Guerra de Canudos e interior do Brasil |
+| O que é astronomia? | 0.829 | Sim, artigo direto de Astronomia |
+| Quem foi Albert Einstein? | 0.591 | Sim, física quântica com menção a Einstein |
+| Como funciona a fotossíntese? | 0.547 | Sim, fotossíntese em liquens |
+| O que é inteligência artificial? | 0.927 | Sim, artigo direto de IA |
+| Qual é a história do Brasil? | 0.731 | Sim, Guerra de Canudos e interior do Brasil |
 
 ---
 
 ## Análise Comparativa
 
-O BM25 falhou em 3 das 5 consultas, recuperando documentos com sobreposição lexical acidental — o clássico problema de vocabulário desalinhado entre consulta e corpus. A abordagem densa via FAISS acertou semanticamente todas as consultas, mesmo com um corpus quatro vezes menor (2k vs 5k documentos).
+O BM25 falhou em 3 das 5 consultas, recuperando documentos com sobreposição lexical acidental, o clássico problema de vocabulário desalinhado entre consulta e corpus. A abordagem densa via FAISS acertou semanticamente todas as consultas, mesmo com um corpus quatro vezes menor (2k vs 5k documentos).
 
 A diferença de desempenho evidencia a limitação fundamental da recuperação lexical, que é justamente a dependência de correspondência exata de termos. Em domínios com vocabulário rico e variado como a Wikipédia, embeddings semânticos são consistentemente superiores, ao custo de maior tempo de indexação e dependência de um modelo pré-treinado.
 
@@ -95,8 +95,8 @@ pip install datasets sentence-transformers faiss-cpu rank-bm25 transformers "pya
 
 Abra o Jupyter e execute os notebooks na seguinte ordem:
 
-1. `obrigatorio.ipynb` — baixa o corpus e constrói o índice BM25
-2. `opcional.ipynb` — reutiliza parte do corpus, gera os embeddings e executa o LLM para geração
+1. `obrigatorio.ipynb`: baixa o corpus e constrói o índice BM25
+2. `opcional.ipynb`: reutiliza parte do corpus, gera os embeddings e executa o LLM para geração
 
 Na primeira execução, o corpus é baixado via streaming e salvo em `data/raw/` para reruns sem download adicional.
 
@@ -112,6 +112,6 @@ Gerenciadas via `pip-tools` na raiz do projeto. Pacotes relevantes para esta sem
 
 | Versão | Descrição | Autor(es) | Data | Revisor(es) | Data de Revisão |
 |--------|-----------|-----------|------|-------------|-----------------|
-| 1.0 | Criação dos notebooks de RAG lexical e denso com corpus TucanoBR/wikipedia-PT. | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 |
+| 1.0 | Criação e edição do README. | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 |
 | 1.1 | Adição de resultados, análise comparativa, contexto do dataset e instruções de execução. | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 |
-| 1.2 | Implementação completa do LLM (google/flan-t5-small) nos 2 notebooks e análise do impacto do chunk. | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 |
+| 1.2 | Análise do impacto do chunk. | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 |

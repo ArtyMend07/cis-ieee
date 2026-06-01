@@ -10,12 +10,12 @@ O repositório está organizado de forma modular, permitindo a separação limpa
 
 ```text
 / (raiz do projeto)
-├── desafio_introdutorio/     ← Modelagem inicial de nivelamento.
-├── desafio1/                 ← Primeira modelagem preditiva e engenharia de recursos.
-├── desafio2/                 ← Otimização de hiperparâmetros e deep learning baseada em PyTorch.
-├── requirements.in           ← Dependências brutas do projeto.
-└── requirements.txt          ← Dependências compiladas de forma determinística com hashes.
-```
+├── desafio_introdutorio/     
+├── semana1/                
+├── semana2/                 
+├── semana3/
+├── requirements.in          
+└── requirements.txt          
 
 ### Detalhamento dos Desafios Semanais
 
@@ -31,6 +31,11 @@ O repositório está organizado de forma modular, permitindo a separação limpa
    - **Objetivo**: Implementação de fluxos de treinamento para modelos tradicionais de Machine Learning e arquiteturas profundas baseadas em PyTorch, onde toda a calibração de hiperparâmetros e monitoramento de métricas por época são catalogados localmente por meio de logs nativos no MLflow.
    - **Guia Técnico**: Documentação de modelagem estruturada em [desafio2/README.md](./desafio2/README.md).
    - **Solução Desenvolvida**: Notebook estruturado em [solucao_desafio2.ipynb](./desafio2/notebooks/solucao_desafio2.ipynb).
+
+4. **[Desafio da Semana 3](./semana3/)**
+   - **Objetivo**: Implementação de pipelines completos de Retrieval-Augmented Generation (RAG), contrastando métodos lexicais (BM25) e vetoriais densos (FAISS) com um modelo de linguagem para geração baseada em contexto.
+   - **Guia Técnico**: Documentação da modelagem e resultados em [semana3/README.md](./semana3/README.md).
+   - **Solução Desenvolvida**: Notebooks estruturados na pasta [notebooks](./semana3/notebooks/).
 
 ---
 
@@ -55,3 +60,4 @@ Para sincronizar o ambiente virtual do projeto de acordo com a árvore travada d
 | Versão | Descrição | Autor(es) | Data | Revisor(es) | Data de Revisão |
 |--------|-----------|-----------|------|-------------|-----------------|
 | 1.0 | Reestruturação geral do README do repositório principal com inclusão dos caminhos relativos corretos e mapeamento dos desafios semanais. | [artur mendonça arruda](https://github.com/ArtyMend07) | 22/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 22/05/2026 |
+| 1.1 | Inclusão do caminho e descrição para o Desafio da Semana 3 (RAG). | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 | [artur mendonça arruda](https://github.com/ArtyMend07) | 31/05/2026 |
